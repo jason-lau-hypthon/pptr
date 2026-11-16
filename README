@@ -18,4 +18,4 @@ ZIP_PASSWORD='your password' node index.js --zip --year 2025
 
 The archive includes every `.xlsx` file in the year directory. If an expected workbook is missing, the program asks for confirmation in a terminal. Set `ZIP_PASSWORD` to an empty string for an unencrypted archive. Without that variable, the program asks whether to encrypt and prompts for a password without displaying it.
 
-`AIA_USER` and `AIA_PASS` override the existing UAT credentials. `HEADLESS=true` enables headless Chrome, which has not been verified against the site. Puppeteer needs its compatible Chrome browser installed. Run `npx puppeteer browsers install chrome` if it is missing.
+Set `AIA_USER` and `AIA_PASS` in a `.env` file in the repository root or in your environment. The `.env` file is ignored by Git. Environment variables take precedence over `.env` values. Node.js 20.12 or later is required to load `.env` files. `HEADLESS=true` enables headless Chrome, which has not been verified against the site. Puppeteer needs its compatible Chrome browser installed. Run `npx puppeteer browsers install chrome` if it is missing.

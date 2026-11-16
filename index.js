@@ -8,6 +8,12 @@ const { createWorkbook } = require('./excel');
 const { createZip } = require('./zip');
 const { scrapeLanguage } = require('./scrape');
 
+try {
+  process.loadEnvFile(path.join(__dirname, '.env'));
+} catch (error) {
+  if (error.code !== 'ENOENT') throw error;
+}
+
 const outputRoot = path.join(__dirname, 'output');
 
 function question(prompt, masked = false) {
@@ -39,6 +45,9 @@ async function atomicWrite(destination, data) {
 }
 
 async function runTarget(target, year) {
+  if (!process.env.AIA_USER || !process.env.AIA_PASS) {
+    throw new Error('Set AIA_USER and AIA_PASS in .env or the environment');
+  }
   const results = {};
   const failures = [];
   for (const language of languages) {
