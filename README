@@ -1,0 +1,10 @@
+# Further Product Information
+## Note
+1. yarn install
+2. Change URL and 3 languages
+    - https://wwwuat2.aia.com.hk/en/products/further-product-information/participating-products/fulfillment-ratio
+    - https://wwwuat2.aia.com.hk/en/products/further-product-information/participating-products/total-cash-value-ratio
+    - https://wwwuat2.aia.com.hk/en/products/further-product-information/universal-life/crediting-interest-rate-history
+3. `node index.js | pbcopy` to copy the result to clipboard
+4. Resize Chrome window and accept the cookie statement avoid error for popup content cannot update 
+5. Wait progress complete then paste the result to HTML file
