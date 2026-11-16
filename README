@@ -1,10 +1,21 @@
 # Further Product Information
-## Note
-1. yarn install
-2. Change URL and 3 languages
-    - https://wwwuat2.aia.com.hk/en/products/further-product-information/participating-products/fulfillment-ratio
-    - https://wwwuat2.aia.com.hk/en/products/further-product-information/participating-products/total-cash-value-ratio
-    - https://wwwuat2.aia.com.hk/en/products/further-product-information/universal-life/crediting-interest-rate-history
-3. `node index.js | pbcopy` to copy the result to clipboard
-4. Resize Chrome window and accept the cookie statement avoid error for popup content cannot update 
-5. Wait progress complete then paste the result to HTML file
+
+Install dependencies with `npm install`, then run `node index.js` to choose a target or create an archive. Enter the reporting year when prompted. The year names the output and does not change the data on the site.
+
+To run a target without the menu, use:
+
+```
+node index.js --target fulfillment-ratio --year 2025
+```
+
+The other targets are `total-cash-value-ratio` and `crediting-interest-rate-history`. Each run creates a workbook in `output/{year}/` with `EN`, `TC`, and `SC` sheets. A failed language prevents the workbook from being written.
+
+After creating the workbooks, select **Zip only** or run:
+
+```
+ZIP_PASSWORD='your password' node index.js --zip --year 2025
+```
+
+The archive includes every `.xlsx` file in the year directory. If an expected workbook is missing, the program asks for confirmation in a terminal. Set `ZIP_PASSWORD` to an empty string for an unencrypted archive. Without that variable, the program asks whether to encrypt and prompts for a password without displaying it.
+
+Set `AIA_USER` and `AIA_PASS` in a `.env` file in the repository root or in your environment. The `.env` file is ignored by Git. Environment variables take precedence over `.env` values. Node.js 20.12 or later is required to load `.env` files. `HEADLESS=true` enables headless Chrome, which has not been verified against the site. Puppeteer needs its compatible Chrome browser installed. Run `npx puppeteer browsers install chrome` if it is missing.

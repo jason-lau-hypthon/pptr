@@ -1,11 +1,18 @@
 # Dependencies
 node_modules/
+.yarn/install-state.gz
+.yarnrc.yml
 
 # Puppeteer browser downloads and cache
 .cache/
 
 # Generated output
 /output/
+
+# The global gitignore excludes *.md; keep this repo's docs tracked
+!AGENTS.md
+!GLOSSARY.md
+!docs/**/*.md
 
 # Logs
 *.log
