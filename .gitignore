@@ -1,5 +1,7 @@
 # Dependencies
 node_modules/
+.yarn/install-state.gz
+.yarnrc.yml
 
 # Puppeteer browser downloads and cache
 .cache/
