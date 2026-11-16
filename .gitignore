@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Puppeteer browser downloads and cache
+.cache/
+
+# Generated output
+/output/
+
+# Logs
+*.log
+
+# Local environment variables
+.env
+.env.*
+!.env.example
+
+# macOS
+.DS_Store
