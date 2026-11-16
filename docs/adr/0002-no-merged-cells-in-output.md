@@ -1,5 +1,7 @@
 # Output sheets do not reproduce the merged cells of the hand-made workbook
 
+**Superseded.** The operator later requested more readable sheets with merged cells. The workbook now merges title rows and reproduces row and column spans from the source tables.
+
 The existing workbooks in `output/2025/` were produced by pasting scraped HTML into Excel. They contain 569
 merged cells, mostly long title rows spanning the table width. Our writer deliberately does not reproduce
 them: a title goes in column A as plain text and the sheet carries bold headers and number formats, nothing

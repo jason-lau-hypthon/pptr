@@ -39,7 +39,8 @@ async function scrapeLanguage(target, language) {
           title: titles[index].innerText,
           rows: [...table.querySelectorAll('tr')].map(row => [...row.children]
             .filter(cell => cell.matches('th, td'))
-            .map(cell => ({ text: cell.innerText, header: cell.tagName === 'TH' || !!cell.closest('thead') }))),
+            .map(cell => ({ text: cell.innerText, header: cell.tagName === 'TH' || !!cell.closest('thead'),
+              rowSpan: cell.rowSpan, colSpan: cell.colSpan }))),
         }));
       });
       if (!extracted.length) throw new Error(`No tables for ${products[i]}`);
